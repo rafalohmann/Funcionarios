@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace Funcionarios.Data.Infrastructure
 {
-    public abstract class RepositoryBase<T> where T : BaseEntity
+    public abstract class RepositoryBase<T> where T : EntityBase
     {
         #region Properties
         private FuncionariosEntities dataContext;

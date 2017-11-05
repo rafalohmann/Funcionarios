@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Funcionarios.Domain.Entities
 {
-    public class Ferias : BaseEntity
+    public class Ferias : EntityBase
     {
         public int FeriasId { get; set; }
         public int FuncionarioId { get; set; }

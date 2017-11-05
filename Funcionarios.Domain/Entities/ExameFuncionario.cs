@@ -3,7 +3,7 @@ using System;
 
 namespace Funcionarios.Domain.Entities
 {
-    public class ExameFuncionario : BaseEntity
+    public class ExameFuncionario : EntityBase
     {
         public int ExameFuncionarioId { get; set; }
         public int FuncionarioId { get; set; }

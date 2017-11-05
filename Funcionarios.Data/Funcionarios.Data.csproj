@@ -76,17 +76,17 @@
     <Compile Include="Repositories\CargoRepository.cs" />
     <Compile Include="Repositories\CidadeRepository.cs" />
     <Compile Include="Repositories\EscolaridadeRepository.cs" />
-    <Compile Include="Repositories\EstadocivilRepository.cs" />
+    <Compile Include="Repositories\EstadoCivilRepository.cs" />
     <Compile Include="Repositories\EstadoRepository.cs" />
-    <Compile Include="Repositories\ExamefuncionarioRepository.cs" />
+    <Compile Include="Repositories\ExameFuncionarioRepository.cs" />
     <Compile Include="Repositories\ExameRepository.cs" />
     <Compile Include="Repositories\FeriasRepository.cs" />
     <Compile Include="Repositories\FuncionarioRepository.cs" />
-    <Compile Include="Repositories\JustificativademissaoRepository.cs" />
-    <Compile Include="Repositories\MotivoafastamentoRepository.cs" />
-    <Compile Include="Repositories\PeriodoaquisitivoferiasRepository.cs" />
-    <Compile Include="Repositories\RegimecontratacaoRepository.cs" />
-    <Compile Include="Repositories\ResultadoexameRepository.cs" />
+    <Compile Include="Repositories\JustificativaDemissaoRepository.cs" />
+    <Compile Include="Repositories\MotivoAfastamentoRepository.cs" />
+    <Compile Include="Repositories\PeriodoAquisitivoferiasRepository.cs" />
+    <Compile Include="Repositories\RegimeContratacaoRepository.cs" />
+    <Compile Include="Repositories\ResultadoExameRepository.cs" />
     <Compile Include="Repositories\SexoRepository.cs" />
     <Compile Include="SeedData\SexoSeedData.cs" />
   </ItemGroup>

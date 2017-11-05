@@ -3,7 +3,7 @@ using System;
 
 namespace Funcionarios.Domain.Entities
 {
-    public class AfastamentoFuncionario : BaseEntity
+    public class AfastamentoFuncionario : EntityBase
     {
         public int AfastamentoFuncionarioId { get; set; }
         public int FuncionarioId { get; set; }

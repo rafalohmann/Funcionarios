@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Funcionarios.Domain.Entities
 {
-    public class Cargo : BaseEntity
+    public class Cargo : EntityBase
     {
         public int CargoId { get; set; }
         public string Nome { get; set; }
