@@ -4,7 +4,7 @@ using Funcionarios.Domain.Entities;
 
 namespace Funcionarios.Data.Repositories
 {
-    class CargoRepository : RepositoryBase<Cargo>, ICargoRepository
+    class CargoRepository : BaseRepository<Cargo>, ICargoRepository
     {
         public CargoRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

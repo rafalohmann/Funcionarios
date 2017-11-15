@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace Funcionarios.Data.Infrastructure
 {
-    public abstract class RepositoryBase<T> where T : EntityBase
+    public abstract class BaseRepository<T>: IRepository<T> where T : BaseEntity
     {
         #region Properties
         private FuncionariosEntities dataContext;
@@ -25,7 +25,7 @@ namespace Funcionarios.Data.Infrastructure
         }
         #endregion
 
-        protected RepositoryBase(IDbFactory dbFactory)
+        protected BaseRepository(IDbFactory dbFactory)
         {
             DbFactory = dbFactory;
             dbSet = DbContext.Set<T>();
@@ -62,19 +62,19 @@ namespace Funcionarios.Data.Infrastructure
             return dbSet.Find(id);
         }
 
-        public virtual IEnumerable<T> GetAll()
-        {
-            return dbSet.ToList();
-        }
-
-        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where)
-        {
-            return dbSet.Where(where).ToList();
-        }
-
         public T Get(Expression<Func<T, bool>> where)
         {
             return dbSet.Where(where).FirstOrDefault<T>();
+        }
+
+        public virtual IQueryable<T> GetAll()
+        {
+            return dbSet;
+        }
+
+        public virtual IQueryable<T> GetMany(Expression<Func<T, bool>> where)
+        {
+            return dbSet.Where(where);
         }
 
         #endregion

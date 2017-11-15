@@ -5,10 +5,10 @@ using Funcionarios.Domain.Entities;
 
 namespace Funcionarios.Service.Services
 {
-    class EscolaridadeService : ServiceBase<Escolaridade>, IEscolaridadeService
+    class EscolaridadeService : BaseService<Escolaridade>, IEscolaridadeService
     {
-        public EscolaridadeService(RepositoryBase<Escolaridade> repository, IUnitOfWork unitOfWork)
-            : base(repository, unitOfWork) { }
+        public EscolaridadeService(IRepository<Escolaridade> repository)
+            : base(repository) { }
     }
 
     public interface IEscolaridadeService : IService<Escolaridade>

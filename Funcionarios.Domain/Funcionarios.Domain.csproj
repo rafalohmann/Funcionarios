@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastructure\EntityBase.cs" />
+    <Compile Include="Infrastructure\BaseEntity.cs" />
     <Compile Include="Entities\Ferias.cs" />
     <Compile Include="Entities\AfastamentoFuncionario.cs" />
     <Compile Include="Entities\PeriodoAquisitivoFerias.cs" />

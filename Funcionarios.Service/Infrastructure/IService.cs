@@ -4,16 +4,13 @@ using System.Linq.Expressions;
 
 namespace Funcionarios.Data.Infrastructure
 {
-    public interface IService<T> where T : class
+    public interface IService<TResource>
+        where TResource : class
     {
-        void Add(T entity);
-        void Update(T entity);
-        void Delete(T entity);
-        void Delete(Expression<Func<T, bool>> where);
-        T GetById(int id);
-        T Get(Expression<Func<T, bool>> where);
-        IEnumerable<T> GetAll();
-        IEnumerable<T> GetMany(Expression<Func<T, bool>> where);
-        void Save();
+        void Add(TResource resource);
+        void Update(TResource resource);
+        void Delete(TResource resource);
+        TResource GetById(int id);
+        IEnumerable<TResource> GetAll();
     }
 }

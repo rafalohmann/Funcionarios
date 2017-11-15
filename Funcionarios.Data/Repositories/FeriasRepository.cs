@@ -4,7 +4,7 @@ using Funcionarios.Domain.Entities;
 
 namespace Funcionarios.Data.Repositories
 {
-    class FeriasRepository : RepositoryBase<Ferias>, IFeriasRepository
+    class FeriasRepository : BaseRepository<Ferias>, IFeriasRepository
     {
         public FeriasRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

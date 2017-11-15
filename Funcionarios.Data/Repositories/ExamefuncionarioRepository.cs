@@ -4,7 +4,7 @@ using Funcionarios.Domain.Entities;
 
 namespace Funcionarios.Data.Repositories
 {
-    class ExameFuncionarioRepository : RepositoryBase<ExameFuncionario>, IExameFuncionarioRepository
+    class ExameFuncionarioRepository : BaseRepository<ExameFuncionario>, IExameFuncionarioRepository
     {
         public ExameFuncionarioRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

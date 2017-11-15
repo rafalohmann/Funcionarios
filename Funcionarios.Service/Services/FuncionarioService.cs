@@ -4,10 +4,10 @@ using Funcionarios.Domain.Entities;
 
 namespace Funcionarios.Service.Services
 {
-    class FuncionarioService : ServiceBase<Funcionario>, IFuncionarioService
+    class FuncionarioService : BaseService<Funcionario>, IFuncionarioService
     {
-        public FuncionarioService(RepositoryBase<Funcionario> repository, IUnitOfWork unitOfWork)
-            : base(repository, unitOfWork) { }
+        public FuncionarioService(IRepository<Funcionario> repository)
+            : base(repository) { }
     }
 
     public interface IFuncionarioService : IService<Funcionario>

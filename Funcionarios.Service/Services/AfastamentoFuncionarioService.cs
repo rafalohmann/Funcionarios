@@ -1,16 +1,24 @@
 ﻿using Funcionarios.Data.Infrastructure;
 using Funcionarios.Domain.Entities;
+using Funcionarios.Service.Infrastructure;
+using Funcionarios.Service.Resources;
 
 namespace Funcionarios.Service.Services
 {
-    class AfastamentoFuncionarioService : ServiceBase<AfastamentoFuncionario>, IAfastamentoFuncionarioService
+    public class AfastamentoFuncionarioService : BaseService<AfastamentoFuncionario, AfastamentoFuncionarioResource>, IAfastamentoFuncionarioService
     {
-        public AfastamentoFuncionarioService(RepositoryBase<AfastamentoFuncionario> repository, IUnitOfWork unitOfWork)
-            : base(repository, unitOfWork) { }
+        public AfastamentoFuncionarioService(IRepository<AfastamentoFuncionario> repository)
+            : base(repository) { }
+
+        public void Delete(int id)
+        {
+            AfastamentoFuncionario entity = repository.Get(e => e.AfastamentoFuncionarioId == id);
+            repository.Delete(entity);
+        }
     }
 
-    public interface IAfastamentoFuncionarioService : IService<AfastamentoFuncionario>
+    public interface IAfastamentoFuncionarioService : IService<AfastamentoFuncionarioResource>
     {
-
+        void Delete(int id);
     }
 }

@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace Funcionarios.Data.SeedData
 {
-    class SexoSeedData : DropCreateDatabaseIfModelChanges<FuncionariosEntities>
+    public class SexoSeedData : DropCreateDatabaseIfModelChanges<FuncionariosEntities>
     {
         protected override void Seed(FuncionariosEntities context)
         {

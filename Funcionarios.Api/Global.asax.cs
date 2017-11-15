@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Funcionarios.Api.App_Start;
 using System.Web.Http;
-using System.Web.Routing;
 
 namespace Funcionarios.Api
 {
@@ -11,6 +7,8 @@ namespace Funcionarios.Api
     {
         protected void Application_Start()
         {
+            Bootstrapper.Run();
+			
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

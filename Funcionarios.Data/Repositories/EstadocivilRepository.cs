@@ -4,7 +4,7 @@ using Funcionarios.Domain.Entities;
 
 namespace Funcionarios.Data.Repositories
 {
-    class EstadoCivilRepository : RepositoryBase<EstadoCivil>, IEstadoCivilRepository
+    class EstadoCivilRepository : BaseRepository<EstadoCivil>, IEstadoCivilRepository
     {
         public EstadoCivilRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

@@ -3,7 +3,7 @@ using Funcionarios.Domain.Entities;
 
 namespace Funcionarios.Data.Repositories
 {
-    class AfastamentoFuncionarioRepository : RepositoryBase<AfastamentoFuncionario>, IAfastamentoFuncionarioRepository
+    public class AfastamentoFuncionarioRepository : BaseRepository<AfastamentoFuncionario>, IAfastamentoFuncionarioRepository
     {
         public AfastamentoFuncionarioRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

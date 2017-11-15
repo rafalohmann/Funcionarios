@@ -4,7 +4,7 @@ using Funcionarios.Domain.Entities;
 
 namespace Funcionarios.Data.Repositories
 {
-    class MotivoAfastamentoRepository : RepositoryBase<MotivoAfastamento>, IMotivoAfastamentoRepository
+    class MotivoAfastamentoRepository : BaseRepository<MotivoAfastamento>, IMotivoAfastamentoRepository
     {
         public MotivoAfastamentoRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

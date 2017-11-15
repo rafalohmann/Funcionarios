@@ -4,7 +4,7 @@ using Funcionarios.Domain.Entities;
 
 namespace Funcionarios.Data.Repositories
 {
-    class SexoRepository : RepositoryBase<Sexo>, ISexoRepository
+    class SexoRepository : BaseRepository<Sexo>, ISexoRepository
     {
         public SexoRepository(IDbFactory dbFactory)
             : base(dbFactory) { }

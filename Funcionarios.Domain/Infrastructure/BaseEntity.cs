@@ -2,9 +2,9 @@
 
 namespace Funcionarios.Domain.Base
 {
-    public abstract class EntityBase
+    public abstract class BaseEntity
     {
-        public EntityBase()
+        public BaseEntity()
         {
             DataCriacao = DateTime.Now;
         }

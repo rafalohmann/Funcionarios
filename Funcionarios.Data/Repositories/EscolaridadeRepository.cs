@@ -5,7 +5,7 @@ using Funcionarios.Domain.Entities;
 
 namespace Funcionarios.Data.Repositories
 {
-    class EscolaridadeRepository : RepositoryBase<Escolaridade>, IEscolaridadeRepository
+    class EscolaridadeRepository : BaseRepository<Escolaridade>, IEscolaridadeRepository
     {
         public EscolaridadeRepository(IDbFactory dbFactory)
             : base(dbFactory) { }
