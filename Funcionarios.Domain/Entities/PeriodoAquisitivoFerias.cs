@@ -13,9 +13,8 @@ namespace Funcionarios.Domain.Entities
         public bool Abono { get; set; }
         public int Saldo { get; set; }
         public bool Encerrado { get; set; }
-        public bool Ativo { get; set; }
+        public bool Inativo { get; set; }
 
         public Funcionario Funcionario { get; set; }
-        public virtual List<Ferias> Feriass { get; set; }
     }
 }

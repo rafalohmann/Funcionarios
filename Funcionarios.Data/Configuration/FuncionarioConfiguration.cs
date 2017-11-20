@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace Funcionarios.Data.Configuration
 {
-    class FuncionarioConfiguration: EntityTypeConfiguration<Funcionario>
+    class FuncionarioConfiguration : EntityTypeConfiguration<Funcionario>
     {
         public FuncionarioConfiguration()
         {
@@ -16,9 +16,9 @@ namespace Funcionarios.Data.Configuration
             Property(g => g.OrgaoEmissorRG).IsRequired().HasMaxLength(10);
             Property(g => g.EstadoEmissorRGId).IsRequired().HasMaxLength(2);
             Property(g => g.DataEmissaoRG).IsRequired();
-            Property(g => g.SexoId).IsRequired().HasMaxLength(50);
+            Property(g => g.SexoId).IsRequired().HasMaxLength(1);
             Property(g => g.EstadoCivilId).IsRequired();
-            Property(g => g.EscolaridadeId).IsRequired().HasMaxLength(50);
+            Property(g => g.EscolaridadeId).IsRequired();
             Property(g => g.DataNascimento).IsRequired();
 
             Property(g => g.CarteiraTrabalho).IsRequired();
@@ -40,6 +40,21 @@ namespace Funcionarios.Data.Configuration
             Property(g => g.Telefone).HasMaxLength(30);
             Property(g => g.Celular).HasMaxLength(30);
             Property(g => g.Email).HasMaxLength(100);
+
+            this.HasRequired(m => m.EstadoEmissorRG)
+            .WithMany(t => t.FuncionariosEmissorRG)
+            .HasForeignKey(m => m.EstadoEmissorRGId)
+            .WillCascadeOnDelete(false);
+
+            this.HasRequired(m => m.EstadoCarteiraTrabalho)
+            .WithMany(t => t.FuncionariosCarteiraTrabalho)
+            .HasForeignKey(m => m.EstadoCarteiraTrabalhoId)
+            .WillCascadeOnDelete(false);
+
+            this.HasRequired(m => m.Estado)
+            .WithMany(t => t.Funcionarios)
+            .HasForeignKey(m => m.EstadoId)
+            .WillCascadeOnDelete(false);
         }
     }
 }

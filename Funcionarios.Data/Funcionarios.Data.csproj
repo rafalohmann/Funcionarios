@@ -88,7 +88,7 @@
     <Compile Include="Repositories\RegimeContratacaoRepository.cs" />
     <Compile Include="Repositories\ResultadoExameRepository.cs" />
     <Compile Include="Repositories\SexoRepository.cs" />
-    <Compile Include="SeedData\SexoSeedData.cs" />
+    <Compile Include="Infrastructure\SeedData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

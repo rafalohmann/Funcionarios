@@ -1,17 +1,24 @@
-                
 using Funcionarios.Data.Infrastructure;
 using Funcionarios.Domain.Entities;
+using Funcionarios.Service.Infrastructure;
+using Funcionarios.Service.Resources;
 
 namespace Funcionarios.Service.Services
 {
-    class FuncionarioService : BaseService<Funcionario>, IFuncionarioService
+    public class FuncionarioService : BaseService<Funcionario, FuncionarioResource>, IFuncionarioService
     {
-        public FuncionarioService(IRepository<Funcionario> repository)
-            : base(repository) { }
+        public FuncionarioService(IRepository<Funcionario> repository, IUnitOfWork unitOfWork)
+            : base(repository, unitOfWork) { }
+
+        public void Delete(int id)
+        {
+            Funcionario entity = repository.Get(e => e.FuncionarioId == id);
+            repository.Delete(entity);
+        }
     }
 
-    public interface IFuncionarioService : IService<Funcionario>
+    public interface IFuncionarioService : IService<FuncionarioResource>
     {
-
+        void Delete(int id);
     }
 }

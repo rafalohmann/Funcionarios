@@ -11,7 +11,7 @@ namespace Funcionarios.Domain.Entities
         public int ResultadoExameId { get; set; }
         public DateTime? DataExame { get; set; }
         public string Observacao { get; set; }
-        public bool Ativo { get; set; }
+        public bool Inativo { get; set; }
 
         public Funcionario Funcionario { get; set; }
         public Exame Exame { get; set; }

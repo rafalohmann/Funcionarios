@@ -11,7 +11,7 @@ namespace Funcionarios.Domain.Entities
         public DateTime? DataInicial { get; set; }
         public DateTime? DataFinal { get; set; }
         public string Descricao { get; set; }
-        public bool Ativo { get; set; }
+        public bool Inativo { get; set; }
 
         public Funcionario Funcionario { get; set; }
         public MotivoAfastamento MotivoAfastamento { get; set; }

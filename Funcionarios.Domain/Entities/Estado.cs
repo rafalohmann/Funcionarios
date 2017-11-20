@@ -7,7 +7,7 @@ namespace Funcionarios.Domain.Entities
     {
         public string EstadoId { get; set; }
         public string Nome { get; set; }
-        public bool Ativo { get; set; }
+        public bool Inativo { get; set; }
 
         public virtual List<Cidade> Cidades { get; set; }
         public virtual List<Funcionario> FuncionariosEmissorRG { get; set; }

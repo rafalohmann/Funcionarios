@@ -7,8 +7,8 @@ namespace Funcionarios.Service.Services
 {
     public class AfastamentoFuncionarioService : BaseService<AfastamentoFuncionario, AfastamentoFuncionarioResource>, IAfastamentoFuncionarioService
     {
-        public AfastamentoFuncionarioService(IRepository<AfastamentoFuncionario> repository)
-            : base(repository) { }
+        public AfastamentoFuncionarioService(IRepository<AfastamentoFuncionario> repository, IUnitOfWork unitOfWork)
+            : base(repository, unitOfWork) { }
 
         public void Delete(int id)
         {

@@ -13,10 +13,12 @@ namespace Funcionarios.Service.Infrastructure
         where TResource : BaseResource
     {
         public readonly IRepository<T> repository;
+        public readonly IUnitOfWork unitOfWork;
 
-        protected BaseService(IRepository<T> repository)
+        protected BaseService(IRepository<T> repository, IUnitOfWork unitOfWork)
         {
             this.repository = repository;
+            this.unitOfWork = unitOfWork;
         }
 
         #region Implementation
@@ -24,34 +26,29 @@ namespace Funcionarios.Service.Infrastructure
         {
             T entity = Mapper.Map<TResource, T>(entityResource);
             repository.Add(entity);
+
+            unitOfWork.Commit();
         }
 
         public virtual void Update(TResource entityResource)
         {
             T entity = Mapper.Map<TResource, T>(entityResource);
             repository.Update(entity);
+
+            unitOfWork.Commit();
         }
 
         public virtual void Delete(TResource entityResource)
         {
             T entity = Mapper.Map<TResource, T>(entityResource);
             repository.Delete(entity);
-        }
 
-        public virtual void Delete(Expression<Func<T, bool>> where)
-        {
-            repository.Delete(where);
+            unitOfWork.Commit();
         }
 
         public virtual TResource GetById(int id)
         {
             var entity = repository.GetById(id);
-            return Mapper.Map<T, TResource>(entity);
-        }
-
-        public TResource Get(Expression<Func<T, bool>> where)
-        {
-            var entity = repository.Get(where);
             return Mapper.Map<T, TResource>(entity);
         }
 
@@ -61,10 +58,9 @@ namespace Funcionarios.Service.Infrastructure
             return Mapper.Map<IEnumerable<T>, IEnumerable<TResource>>(result);
         }
 
-        public virtual IEnumerable<TResource> GetMany(Expression<Func<T, bool>> where)
+        public void Save()
         {
-            var result = repository.GetMany(where).ToList();
-            return Mapper.Map<IEnumerable<T>, IEnumerable<TResource>>(result);
+            unitOfWork.Commit();
         }
         #endregion
 

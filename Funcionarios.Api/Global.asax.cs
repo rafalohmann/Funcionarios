@@ -1,4 +1,5 @@
 ﻿using Funcionarios.Api.App_Start;
+using Funcionarios.Data.Infrastructure;
 using System.Web.Http;
 
 namespace Funcionarios.Api
@@ -7,6 +8,9 @@ namespace Funcionarios.Api
     {
         protected void Application_Start()
         {
+            // Init database
+            System.Data.Entity.Database.SetInitializer(new SeedData());
+
             Bootstrapper.Run();
 			
             GlobalConfiguration.Configure(WebApiConfig.Register);

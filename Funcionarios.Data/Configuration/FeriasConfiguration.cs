@@ -10,7 +10,7 @@ namespace Funcionarios.Data.Configuration
             ToTable("Ferias");
             Property(g => g.FeriasId).IsRequired();
             Property(g => g.FuncionarioId).IsRequired();
-            Property(g => g.PeriodoAquisitivoFeriasId).IsRequired();
+            //Property(g => g.PeriodoAquisitivoFeriasId).IsRequired();
             Property(g => g.DataInicial).IsRequired();
             Property(g => g.DataFinal).IsRequired();
             Property(g => g.Descricao).HasMaxLength(255);

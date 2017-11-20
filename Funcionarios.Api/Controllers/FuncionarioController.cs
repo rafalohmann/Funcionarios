@@ -5,42 +5,42 @@ using System.Web.Http;
 
 namespace Funcionarios.Api.Controllers
 {
-    public class AfastamentoFuncionarioController : ApiController
+    public class FuncionarioController : ApiController
     {
-        private readonly IAfastamentoFuncionarioService service;
+        private readonly IFuncionarioService service;
 
-        public AfastamentoFuncionarioController(IAfastamentoFuncionarioService service)
+        public FuncionarioController(IFuncionarioService service)
         {
             this.service = service;
         }
 
         [HttpPost]
         //[Authorize]
-        public IHttpActionResult Add([FromBody] AfastamentoFuncionarioResource afastamentoFuncionario)
+        public IHttpActionResult Add([FromBody] FuncionarioResource funcionario)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            service.Add(afastamentoFuncionario);
+            service.Add(funcionario);
 
             return Ok();
         }
 
         [HttpPut]
         //[Authorize]
-        public IHttpActionResult Update([FromBody] AfastamentoFuncionarioResource afastamentoFuncionario)
+        public IHttpActionResult Update([FromBody] FuncionarioResource funcionario)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            service.Update(afastamentoFuncionario);
+            service.Update(funcionario);
 
             return Ok();
         }
 
         [HttpDelete]
         //[Authorize]
-        public IHttpActionResult DeleteAfastamentoFuncionario(int id)
+        public IHttpActionResult DeleteFuncionario(int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -53,18 +53,18 @@ namespace Funcionarios.Api.Controllers
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            var afastamentoFuncionario = service.GetById(id);
+            var funcionario = service.GetById(id);
 
-            if (afastamentoFuncionario == null)
+            if (funcionario == null)
                 return NotFound();
 
-            return Ok(afastamentoFuncionario);
+            return Ok(funcionario);
         }
 
         [HttpGet]
-        public IHttpActionResult Get([FromUri] AfastamentoFuncionarioResource afastamentoFuncionario)
+        public IHttpActionResult Get([FromUri] FuncionarioResource funcionario)
         {
-            IEnumerable<AfastamentoFuncionarioResource> list = service.GetAll();
+            IEnumerable<FuncionarioResource> list = service.GetAll();
 
             if (list == null)
                 return NotFound();

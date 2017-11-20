@@ -11,6 +11,6 @@ namespace Funcionarios.Service.Resources
         public DateTime? DataInicial { get; set; }
         public DateTime? DataFinal { get; set; }
         public string Descricao { get; set; }
-        public bool Ativo { get; set; }
+        public bool Inativo { get; set; }
     }
 }

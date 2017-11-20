@@ -8,7 +8,7 @@ namespace Funcionarios.Domain.Entities
         public int CidadeId { get; set; }
         public string EstadoId { get; set; }
         public string Nome { get; set; }
-        public bool Ativo { get; set; }
+        public bool Inativo { get; set; }
 
         public Estado Estado { get; set; }
 

@@ -9,7 +9,6 @@ namespace Funcionarios.Data.Configuration
         {
             ToTable("JustificativaDemissao");
             Property(g => g.JustificativaDemissaoId).IsRequired();
-            Property(g => g.Nome).IsRequired().HasMaxLength(30);
             Property(g => g.Descricao).HasMaxLength(255);
         }
     }

@@ -1,10 +1,9 @@
-﻿using Funcionarios.Domain.Base;
+﻿using Funcionarios.Service.Infrastructure;
 using System;
-using System.Collections.Generic;
 
-namespace Funcionarios.Domain.Entities
+namespace Funcionarios.Service.Resources
 {
-    public class Funcionario : BaseEntity
+    public class FuncionarioResource : BaseResource
     {
         public int FuncionarioId { get; set; }
         public string Nome { get; set; }
@@ -16,7 +15,7 @@ namespace Funcionarios.Domain.Entities
         public DateTime? DataEmissaoRG { get; set; }
         public string SexoId { get; set; }
         public int EstadoCivilId { get; set; }
-        public int EscolaridadeId { get; set; }
+        public string EscolaridadeId { get; set; }
         public DateTime? DataNascimento { get; set; }
 
         public int CarteiraTrabalho { get; set; }
@@ -43,21 +42,5 @@ namespace Funcionarios.Domain.Entities
         public string Email { get; set; }
 
         public bool Inativo { get; set; }
-
-        public Estado EstadoEmissorRG { get; set; }
-        public Sexo Sexo { get; set; }
-        public EstadoCivil EstadoCivil { get; set; }
-        public Escolaridade Escolaridade { get; set; }
-        public Estado EstadoCarteiraTrabalho { get; set; }
-        public Cargo Cargo { get; set; }
-        public RegimeContratacao RegimeContratacao { get; set; }
-        public JustificativaDemissao JustificativaDemissao { get; set; }
-        public Estado Estado { get; set; }
-        public Cidade Cidade { get; set; }
-
-        public virtual List<AfastamentoFuncionario> AfastamentosFuncionario { get; set; }
-        public virtual List<ExameFuncionario> ExamesFuncionario { get; set; }
-        public virtual List<Ferias> Feriass { get; set; }
-        //public virtual List<PeriodoAquisitivoFerias> PeriodoAquisitivoFeriass { get; set; }
     }
 }

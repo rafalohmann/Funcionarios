@@ -5,42 +5,44 @@ using System.Web.Http;
 
 namespace Funcionarios.Api.Controllers
 {
-    public class AfastamentoFuncionarioController : ApiController
+    [RoutePrefix("api/cidade")]
+    public class CidadeController : ApiController
     {
-        private readonly IAfastamentoFuncionarioService service;
+        private readonly ICidadeService service;
 
-        public AfastamentoFuncionarioController(IAfastamentoFuncionarioService service)
+        public CidadeController(ICidadeService service)
         {
             this.service = service;
         }
 
         [HttpPost]
         //[Authorize]
-        public IHttpActionResult Add([FromBody] AfastamentoFuncionarioResource afastamentoFuncionario)
+        public IHttpActionResult Add([FromBody] CidadeResource entityResource)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            service.Add(afastamentoFuncionario);
+            service.Add(entityResource);
 
             return Ok();
         }
 
         [HttpPut]
         //[Authorize]
-        public IHttpActionResult Update([FromBody] AfastamentoFuncionarioResource afastamentoFuncionario)
+        public IHttpActionResult Update([FromBody] CidadeResource entityResource)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            service.Update(afastamentoFuncionario);
+            service.Update(entityResource);
 
             return Ok();
         }
 
         [HttpDelete]
         //[Authorize]
-        public IHttpActionResult DeleteAfastamentoFuncionario(int id)
+        [Route("{id}")]
+        public IHttpActionResult Delete(int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -51,20 +53,22 @@ namespace Funcionarios.Api.Controllers
         }
 
         [HttpGet]
+        [Route("{id:int}")]
         public IHttpActionResult Get(int id)
         {
-            var afastamentoFuncionario = service.GetById(id);
+            var entity = service.Get(id);
 
-            if (afastamentoFuncionario == null)
+            if (entity == null)
                 return NotFound();
 
-            return Ok(afastamentoFuncionario);
+            return Ok(entity);
         }
 
         [HttpGet]
-        public IHttpActionResult Get([FromUri] AfastamentoFuncionarioResource afastamentoFuncionario)
+        [Route("{estadoId}")]
+        public IHttpActionResult Get(string estadoId, [FromUri] CidadeResource entityResource)
         {
-            IEnumerable<AfastamentoFuncionarioResource> list = service.GetAll();
+            IEnumerable<CidadeResource> list = service.GetMany(estadoId, entityResource);
 
             if (list == null)
                 return NotFound();

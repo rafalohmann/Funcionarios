@@ -6,9 +6,8 @@ namespace Funcionarios.Domain.Entities
     public class MotivoAfastamento : BaseEntity
     {
         public int MotivoAfastamentoId { get; set; }
-        public string Nome { get; set; }
         public string Descricao { get; set; }
-        public bool Ativo { get; set; }
+        public bool Inativo { get; set; }
 
         public virtual List<AfastamentoFuncionario> AfastamentosFuncionario { get; set; }
     }

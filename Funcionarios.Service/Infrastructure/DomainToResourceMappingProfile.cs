@@ -12,7 +12,7 @@ namespace Funcionarios.Service.Infrastructure
         public DomainToResourceMappingProfile()
         {
             CreateMap<AfastamentoFuncionario, AfastamentoFuncionarioResource>();
-            //CreateMap(typeof(BaseEntity), typeof(BaseResource));
+            CreateMap<Estado, EstadoResource>();
         }
     }
 }

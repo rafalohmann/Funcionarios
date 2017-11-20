@@ -9,7 +9,6 @@ namespace Funcionarios.Data.Configuration
         {
             ToTable("Cargo");
             Property(g => g.CargoId).IsRequired();
-            Property(g => g.Nome).IsRequired().HasMaxLength(50);
             Property(g => g.Descricao).IsRequired().HasMaxLength(255);
         }
     }

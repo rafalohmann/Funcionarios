@@ -9,7 +9,7 @@ namespace Funcionarios.Data.Configuration
         {
             ToTable("RegimeContratacao");
             Property(g => g.RegimeContratacaoId).IsRequired();
-            Property(g => g.Nome).IsRequired().HasMaxLength(50);
+            Property(g => g.Descricao).IsRequired().HasMaxLength(50);
         }
     }
 }

@@ -9,7 +9,6 @@ namespace Funcionarios.Data.Configuration
         {
             ToTable("MotivoAfastamento");
             Property(g => g.MotivoAfastamentoId).IsRequired();
-            Property(g => g.Nome).IsRequired().HasMaxLength(30);
             Property(g => g.Descricao).HasMaxLength(255);
         }
     }

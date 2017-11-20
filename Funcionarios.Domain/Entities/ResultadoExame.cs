@@ -7,7 +7,7 @@ namespace Funcionarios.Domain.Entities
     {
         public int ResultadoExameId { get; set; }
         public string Descricao { get; set; }
-        public bool Ativo { get; set; }
+        public bool Inativo { get; set; }
 
         public virtual List<ExameFuncionario> ExamesFuncionario { get; set; }
     }

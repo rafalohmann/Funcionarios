@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\PeriodoAquisitivoFerias.cs" />
     <Compile Include="Infrastructure\BaseEntity.cs" />
     <Compile Include="Entities\Ferias.cs" />
     <Compile Include="Entities\AfastamentoFuncionario.cs" />
-    <Compile Include="Entities\PeriodoAquisitivoFerias.cs" />
     <Compile Include="Entities\ExameFuncionario.cs" />
     <Compile Include="Entities\RegimeContratacao.cs" />
     <Compile Include="Entities\Sexo.cs" />

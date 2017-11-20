@@ -7,7 +7,7 @@ namespace Funcionarios.Domain.Entities
     {
         public string SexoId { get; set; }
         public string Descricao { get; set; }
-        public bool Ativo { get; set; }
+        public bool Inativo { get; set; }
 
         public virtual List<Funcionario> Funcionarios { get; set; }
     }
