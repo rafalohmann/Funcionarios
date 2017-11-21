@@ -5,7 +5,7 @@ namespace Funcionarios.Service.Resources
 {
     public class AfastamentoFuncionarioResource: BaseResource
     {
-        public int Id { get; set; }
+        public int AfastamentoFuncionarioId { get; set; }
         public int FuncionarioId { get; set; }
         public int MotivoAfastamentoId { get; set; }
         public DateTime? DataInicial { get; set; }

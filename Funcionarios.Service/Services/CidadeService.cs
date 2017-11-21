@@ -2,10 +2,11 @@ using AutoMapper;
 using Funcionarios.Data.Infrastructure;
 using Funcionarios.Domain.Entities;
 using Funcionarios.Service.Infrastructure;
+using Funcionarios.Service.Querys;
 using Funcionarios.Service.Resources;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data.Entity;
+using System.Linq;
 
 namespace Funcionarios.Service.Services
 {
@@ -26,21 +27,47 @@ namespace Funcionarios.Service.Services
             return Mapper.Map<Cidade, CidadeResource>(entity);
         }
 
-        public IEnumerable<CidadeResource> GetMany(string EstadoId, CidadeResource entityResource)
+        public IEnumerable<CidadeResource> GetMany(string EstadoId, CidadeQuery entityQuery)
         {
-            if (entityResource == null)
-                entityResource = new CidadeResource();
+            if (entityQuery == null)
+                entityQuery = new CidadeQuery();
 
-            if (entityResource.Nome == null)
-                entityResource.Nome = string.Empty;
+            if (entityQuery.Nome == null)
+                entityQuery.Nome = string.Empty;
 
-            var result = repository.GetMany(e => 
-                e.EstadoId == EstadoId && 
-                e.Nome.Contains(entityResource.Nome)
+            var query = repository.GetMany(e =>
+                e.EstadoId == EstadoId &&
+                e.CidadeId >= entityQuery.CidadeId &&
+                e.Nome.Contains(entityQuery.Nome) &&
+                (entityQuery.IncluirInativos || !e.Inativo)
             )
-            .Include(v => v.Estado)
-            .ToList();
-            return Mapper.Map<IEnumerable<Cidade>, IEnumerable<CidadeResource>>(result);
+            .Include(v => v.Estado);
+
+            switch (entityQuery.Ordenacao)
+            {
+                case "id":
+                    query = query.OrderBy(s => s.CidadeId);
+                    break;
+                case "id_desc":
+                    query = query.OrderByDescending(s => s.CidadeId);
+                    break;
+                case "estado_id":
+                    query = query.OrderBy(s => s.EstadoId);
+                    break;
+                case "estado_id_desc":
+                    query = query.OrderByDescending(s => s.EstadoId);
+                    break;
+                case "nome_desc":
+                    query = query.OrderByDescending(s => s.Nome);
+                    break;
+                default:
+                    query = query.OrderBy(s => s.Nome);
+                    break;
+            }
+
+            query = entityQuery.AplicaPaginacao(query);
+
+            return Mapper.Map<IEnumerable<Cidade>, IEnumerable<CidadeResource>>(query.ToList());
         }
     }
 
@@ -48,6 +75,6 @@ namespace Funcionarios.Service.Services
     {
         void Delete(int id);
         CidadeResource Get(int id);
-        IEnumerable<CidadeResource> GetMany(string EstadoId, CidadeResource estadoResource);
+        IEnumerable<CidadeResource> GetMany(string EstadoId, CidadeQuery entityQuery);
     }
 }

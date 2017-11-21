@@ -52,12 +52,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\AutoMapperConfiguration.cs" />
+    <Compile Include="Infrastructure\BaseQuery.cs" />
     <Compile Include="Infrastructure\DomainToResourceMappingProfile.cs" />
     <Compile Include="Infrastructure\BaseResource.cs" />
     <Compile Include="Infrastructure\IService.cs" />
     <Compile Include="Infrastructure\BaseService.cs" />
     <Compile Include="Infrastructure\ResourceToDomainMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Querys\AfastamentoFuncionarioQuery.cs" />
+    <Compile Include="Querys\CidadeQuery.cs" />
+    <Compile Include="Querys\EstadoQuery.cs" />
+    <Compile Include="Querys\FuncionarioQuery.cs" />
+    <Compile Include="Querys\SexoQuery.cs" />
     <Compile Include="Resources\FuncionarioResource.cs" />
     <Compile Include="Resources\CidadeResource.cs" />
     <Compile Include="Resources\EstadoResource.cs" />

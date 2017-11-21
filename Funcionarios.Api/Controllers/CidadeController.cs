@@ -1,4 +1,5 @@
-﻿using Funcionarios.Service.Resources;
+﻿using Funcionarios.Service.Querys;
+using Funcionarios.Service.Resources;
 using Funcionarios.Service.Services;
 using System.Collections.Generic;
 using System.Web.Http;
@@ -66,9 +67,9 @@ namespace Funcionarios.Api.Controllers
 
         [HttpGet]
         [Route("{estadoId}")]
-        public IHttpActionResult Get(string estadoId, [FromUri] CidadeResource entityResource)
+        public IHttpActionResult Get(string estadoId, [FromUri] CidadeQuery entityQuery)
         {
-            IEnumerable<CidadeResource> list = service.GetMany(estadoId, entityResource);
+            IEnumerable<CidadeResource> list = service.GetMany(estadoId, entityQuery);
 
             if (list == null)
                 return NotFound();
