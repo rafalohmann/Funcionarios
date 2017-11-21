@@ -1,5 +1,6 @@
-﻿using Funcionarios.Service.Infrastructure;
-using System;
+﻿using Funcionarios.Domain.Entities;
+using Funcionarios.Service.Infrastructure;
+using System.Collections.Generic;
 
 namespace Funcionarios.Service.Resources
 {
@@ -9,5 +10,7 @@ namespace Funcionarios.Service.Resources
         public string EstadoId { get; set; }
         public string Nome { get; set; }
         public bool Inativo { get; set; }
+
+        public EstadoResource Estado { get; set; }
     }
 }

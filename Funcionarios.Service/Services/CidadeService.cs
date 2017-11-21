@@ -5,6 +5,7 @@ using Funcionarios.Service.Infrastructure;
 using Funcionarios.Service.Resources;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 
 namespace Funcionarios.Service.Services
 {
@@ -36,7 +37,9 @@ namespace Funcionarios.Service.Services
             var result = repository.GetMany(e => 
                 e.EstadoId == EstadoId && 
                 e.Nome.Contains(entityResource.Nome)
-            ).ToList();
+            )
+            .Include(v => v.Estado)
+            .ToList();
             return Mapper.Map<IEnumerable<Cidade>, IEnumerable<CidadeResource>>(result);
         }
     }
