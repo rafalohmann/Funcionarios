@@ -10,6 +10,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
+    "docs:compodoc": "compodoc -p tsconfig.json",
+    "docs:compodoc:serve": "compodoc -p tsconfig.json -s",
+    "docs:compodoc:serve:watch": "compodoc -p tsconfig.json -s -w",
     "typedoc": "typedoc"
   },
   "private": true,
@@ -35,6 +38,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "compodoc": "0.0.41",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
