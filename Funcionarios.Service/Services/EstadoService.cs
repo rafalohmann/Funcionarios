@@ -35,7 +35,8 @@ namespace Funcionarios.Service.Services
             if (entityResource.Nome == null)
                 entityResource.Nome = string.Empty;
 
-                var result = repository.GetMany(e => e.Nome.Contains(entityResource.Nome)).ToList();
+            var result = repository.GetMany(e => e.Nome.Contains(entityResource.Nome)).ToList();
+
             return Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoResource>>(result);
         }
     }
